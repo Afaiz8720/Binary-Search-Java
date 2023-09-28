@@ -1,0 +1,73 @@
+What is binary search ?
+
+In binary search we can not traverse over first index.
+Binary search always works on sorted array, if array was not sorted so, then its not work.
+Binary search is algorithm to find the element in array at less time.
+In binary search first we find the array midddle index and middle value compare to the target.
+If target is less then mid then we traverse the left side and if target is greater then we traverse right side.
+Binary search is taken time to achive its target at (O(logn)) time complexity.
+
+
+<---------- Algorithm ---------->
+
+Declare start = 0 and end = array.length - 1 
+Find the middle index -> middle = start + ( end - start)/2
+Traverse the loop while(start <= end)
+Compare the middle element to the target
+If(middle_element == target) then return middle index 
+If(middle_element < target) then we are tarverse to the right side like (start = middle + 1) 
+Else we traverse left side of array 
+At the end we update the middle value using middle 
+Then if target not exists in array we are return -1 or something else 
+
+
+<---------- pseudo code ------------->
+
+First we have to declare starting and ending point of array
+Then find the middle index 
+After finding middle index we traverse over the array
+And compare middle element to the target if target is equal to the middle value
+Then we are return the middle index
+if target not equals to the middle value then we are going left or right side 
+if target is greater we are going to right side for checking target present or not 
+Else we are going to left side for checking target present or not 
+Then update the middle index 
+And at the end if target not present in array we are return the -1
+
+
+<------------- Iteravtive code -------------->
+
+int start = 0, end - arr.length -1 ;
+while(start <= end){
+    int mid = start + (end - start)/2;
+    if(arr[mid] == target) return mid;
+
+    if(arr[mid] < target){
+        start = mid + 1;
+    }
+    else{
+        end = mid - 1 ;
+    }
+}
+
+<------------- Recursive Code ------------------>
+
+binary(int[] arr, int target, int start, int end){
+    
+    if(start > end){
+        return -1;
+    }
+
+    int mid = start + (end - start)/2;
+
+    if(arr[mid] == target){
+        return mid;
+    }
+    else if(arr[mid] < target){
+        return binary(int[] arr, int target, mid + 1, int end)
+    }
+    
+    return binary(int[] arr, int target, int start, mid - 1);
+    
+
+}
